@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boolflix</title>
+
+    <!-- font awesame -->
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+       <!-- vue -->
+       <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+       <!-- axios -->
+       <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+
+       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+       <link rel="stylesheet" href="style.css">
+
+       <script src="script.js"></script>
+
+  </head>
+  <body>
+
+    <div id="app" class="container">
+      <div class="header">
+
+        <div class="logo">
+
+        </div>
+        <div class="searchbar">
+
+          <input v-model="search" type="text" name="" value="">
+          <button type="button" @click="searchFunction" name="button">Search</button>
+
+        </div>
+
+
+      </div>
+      <div class="film-collection">
+
+        <div v-for="movie in movies" class="card">
+          <div class="poster">
+            <img :src="movie.poster_path" alt="">
+          </div>
+          <div class="titolo">
+            {{movie.title}}
+          </div>
+          <div class="originale">
+            {{movie.original_title}}
+          </div>
+          <div class="lingua">
+            {{movie.original_language}}
+          </div>
+          <div class="voto">
+            {{movie.vote_average}}
+          </div>
+
+        </div>
+
+      </div>
+      <div class="film-collection">
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
