@@ -6,6 +6,7 @@ function initVue() {
 
           search:'',
           movies:[],
+          series:[]
         },
         methods: {
           searchFunction: function(){
@@ -28,6 +29,40 @@ function initVue() {
 
               })
               .catch(() => console.log('error'));
+
+              axios.get('https://api.themoviedb.org/3/search/tv',{
+
+                  params: {
+
+                    'api_key': '3d057365a654ef0eb46f8c59fd2e6a5b',
+                    'query': this.search
+                  }
+              })
+                  .then(data => {
+
+                      this.series = data.data.results;
+
+                      console.log(this.series);
+                      return this.series
+
+
+                })
+                .catch(() => console.log('error'));
+          },
+          bandiera: function(language){
+
+            if(language == 'en'){
+
+              return 'bandieraen.png'
+
+            } else if (language == 'it') {
+
+              return 'bandierait.png'
+
+            }else {
+
+              return false 
+            }
           }
 
       },

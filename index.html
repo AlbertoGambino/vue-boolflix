@@ -28,16 +28,17 @@
         </div>
         <div class="searchbar">
 
-          <input v-model="search" type="text" name="" value="">
+          <input v-model="search" placeholder="Inserisci film o serie tv" type="text" name="" value="">
           <button type="button" @click="searchFunction" name="button">Search</button>
 
         </div>
 
 
       </div>
-      <div class="film-collection">
+      <div class="collection">
 
         <div v-for="movie in movies" class="card">
+
           <div class="poster">
             <img :src="movie.poster_path" alt="">
           </div>
@@ -48,7 +49,9 @@
             {{movie.original_title}}
           </div>
           <div class="lingua">
-            {{movie.original_language}}
+            <span v-if="bandiera(movie.original_language) == false">{{movie.original_language}}</span>
+
+            <img v-else :src="bandiera(movie.original_language)" alt="">
           </div>
           <div class="voto">
             {{movie.vote_average}}
@@ -57,7 +60,29 @@
         </div>
 
       </div>
-      <div class="film-collection">
+      <div class="collection">
+
+        <div v-for="serie in series" class="card">
+
+          <div class="poster">
+            <img :src="serie.poster_path" alt="">
+          </div>
+          <div class="titolo">
+            {{serie.name}}
+          </div>
+          <div class="originale">
+            {{serie.original_name}}
+          </div>
+          <div class="lingua">
+            <span v-if="bandiera(serie.original_language) == false">{{serie.original_language}}</span>
+
+            <img v-else :src="bandiera(serie.original_language)" alt="">
+          </div>
+          <div class="voto">
+            {{serie.vote_average}}
+          </div>
+
+        </div>
 
       </div>
 

@@ -27,7 +27,7 @@
   margin-right: 10px;
 }
 
-.film-collection{
+.collection{
 
   min-height: 400px;
   width: 100%;
@@ -42,4 +42,11 @@
   height: 400px;
   border: 1px solid white;
   color: white;
+  flex-shrink: 0;
+}
+
+.lingua img{
+
+  height: 40px;
+  width: 40px;
 }
