@@ -45,6 +45,7 @@ function initVue() {
                       console.log(this.series);
                       return this.series
 
+                      // this.search = ''
 
                 })
                 .catch(() => console.log('error'));
@@ -61,10 +62,19 @@ function initVue() {
 
             }else {
 
-              return false 
+              return false
             }
-          }
+          },
+          stelle: function(number){
 
+            return Math.ceil(number / 2)
+          },
+          stellevuote: function(number){
+
+            const vuote = 5 - Math.ceil(number / 2)
+
+            return vuote
+          }
       },
 
 

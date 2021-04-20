@@ -35,12 +35,19 @@
 
 
       </div>
+      <div class="colltitle gold">
+        Film
+      </div>
       <div class="collection">
 
         <div v-for="movie in movies" class="card">
 
-          <div class="poster">
-            <img :src="movie.poster_path" alt="">
+          <div  class="poster">
+
+            <img v-if="movie.poster_path !== null" :src='"https://image.tmdb.org/t/p/w342" + movie.poster_path' alt="">
+
+            <img v-else src="image-not-found.png" alt="">
+
           </div>
           <div class="titolo">
             {{movie.title}}
@@ -55,31 +62,66 @@
           </div>
           <div class="voto">
             {{movie.vote_average}}
+            <span>
+
+              <i v-for="stella in stelle(movie.vote_average)" class="fas fa-star gold"></i>
+
+            </span>
+            <span>
+
+              <i v-for="stella in stellevuote(movie.vote_average)"class="fas fa-star grey"></i>
+
+            </span>
           </div>
 
         </div>
 
+      </div>
+      <div class="colltitle gold">
+        Serie TV
       </div>
       <div class="collection">
 
         <div v-for="serie in series" class="card">
 
           <div class="poster">
-            <img :src="serie.poster_path" alt="">
+            <img v-if="serie.poster_path !== null" :src='"https://image.tmdb.org/t/p/w342" + serie.poster_path' alt="">
+
+            <img v-else src="image-not-found.png" alt="">
           </div>
           <div class="titolo">
+
             {{serie.name}}
+
           </div>
           <div class="originale">
+
             {{serie.original_name}}
+
           </div>
           <div class="lingua">
+
             <span v-if="bandiera(serie.original_language) == false">{{serie.original_language}}</span>
 
             <img v-else :src="bandiera(serie.original_language)" alt="">
+
           </div>
           <div class="voto">
+
             {{serie.vote_average}}
+
+            <span>
+
+              <i v-for="stella in stelle(serie.vote_average)" class="fas fa-star gold"></i>
+
+            </span>
+            <span>
+
+              <i v-for="stella in stellevuote(serie.vote_average)"class="fas fa-star grey"></i>
+
+            </span>
+
+
           </div>
 
         </div>
