@@ -25,18 +25,22 @@
 
         <div class="logo">
 
+          <img src="logo.png" alt="">
+
         </div>
         <div class="searchbar">
 
-          <input v-model="search" placeholder="Inserisci film o serie tv" type="text" name="" value="">
-          <button type="button" @click="searchFunction" name="button">Search</button>
+          <input v-model="search" @keyup.enter="searchFunction" placeholder="Inserisci film o serie tv" type="text" name="" value="">
+          <button type="button"  @click="searchFunction" name="button">Search</button>
 
         </div>
 
 
       </div>
-      <div class="colltitle gold">
-        Film
+      <div class="colltitle">
+
+        <h2>I tuoi Film</h2>
+
       </div>
       <div class="collection">
 
@@ -49,36 +53,59 @@
             <img v-else src="image-not-found.png" alt="">
 
           </div>
-          <div class="titolo">
-            {{movie.title}}
+          <div class="description">
+
+            <div class="titolo">
+
+              <span>Titolo:</span>
+              <span>{{movie.title}}</span>
+
+            </div>
+            <div class="originale">
+
+              <span>Titolo Originale:</span>
+              <span>{{movie.original_title}}</span>
+
+            </div>
+            <div class="lingua">
+
+              <span>Lingua:</span>
+              <span v-if="bandiera(movie.original_language) == false">{{movie.original_language}}</span>
+
+              <img v-else :src="bandiera(movie.original_language)" alt="">
+
+            </div>
+
+            <div class="voto">
+
+              <span>Voto:</span>
+
+              <span>
+
+                <i v-for="stella in stelle(movie.vote_average)" class="fas fa-star gold"></i>
+
+              </span>
+              <span>
+
+                <i v-for="stella in stellevuote(movie.vote_average)"class="fas fa-star grey"></i>
+
+              </span>
+            </div>
+            <div class="overview">
+
+              <span>Overview:</span>
+              <span>{{movie.overview}}</span>
+
+            </div>
+
           </div>
-          <div class="originale">
-            {{movie.original_title}}
-          </div>
-          <div class="lingua">
-            <span v-if="bandiera(movie.original_language) == false">{{movie.original_language}}</span>
 
-            <img v-else :src="bandiera(movie.original_language)" alt="">
-          </div>
-          <div class="voto">
-            {{movie.vote_average}}
-            <span>
-
-              <i v-for="stella in stelle(movie.vote_average)" class="fas fa-star gold"></i>
-
-            </span>
-            <span>
-
-              <i v-for="stella in stellevuote(movie.vote_average)"class="fas fa-star grey"></i>
-
-            </span>
-          </div>
 
         </div>
 
       </div>
-      <div class="colltitle gold">
-        Serie TV
+      <div class="colltitle">
+        <h2>Le tue Serie TV</h2>
       </div>
       <div class="collection">
 
@@ -89,40 +116,55 @@
 
             <img v-else src="image-not-found.png" alt="">
           </div>
-          <div class="titolo">
+          <div class="description">
 
-            {{serie.name}}
+            <div class="titolo">
+
+              <span>Titolo:</span>
+              <span>{{serie.name}}</span>
+
+            </div>
+            <div class="originale">
+
+              <span>Titolo originale:</span>
+              <span>{{serie.original_name}}</span>
+
+            </div>
+            <div class="lingua">
+
+              <span>Lingua:</span>
+
+              <span v-if="bandiera(serie.original_language) == false">{{serie.original_language}}</span>
+
+              <img v-else :src="bandiera(serie.original_language)" alt="">
+
+            </div>
+            <div class="voto">
+
+              <span>Voto:</span>
+
+              <span>
+
+                <i v-for="stella in stelle(serie.vote_average)" class="fas fa-star gold"></i>
+
+              </span>
+              <span>
+
+                <i v-for="stella in stellevuote(serie.vote_average)"class="fas fa-star grey"></i>
+
+              </span>
+
+
+            </div>
+            <div class="overview">
+
+              <span>Overview:</span>
+              <span>{{serie.overview}}</span>
+
+            </div>
 
           </div>
-          <div class="originale">
 
-            {{serie.original_name}}
-
-          </div>
-          <div class="lingua">
-
-            <span v-if="bandiera(serie.original_language) == false">{{serie.original_language}}</span>
-
-            <img v-else :src="bandiera(serie.original_language)" alt="">
-
-          </div>
-          <div class="voto">
-
-            {{serie.vote_average}}
-
-            <span>
-
-              <i v-for="stella in stelle(serie.vote_average)" class="fas fa-star gold"></i>
-
-            </span>
-            <span>
-
-              <i v-for="stella in stellevuote(serie.vote_average)"class="fas fa-star grey"></i>
-
-            </span>
-
-
-          </div>
 
         </div>
 
