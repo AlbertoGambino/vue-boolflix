@@ -132,6 +132,7 @@ margin-right: 10px;
 .card:hover .description{
 
   display: flex;
+  border: 3px solid white;
 
 }
 
