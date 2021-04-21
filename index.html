@@ -13,6 +13,9 @@
 
        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;900&display=swap" rel="stylesheet">
+
        <link rel="stylesheet" href="style.css">
 
        <script src="script.js"></script>
@@ -28,10 +31,22 @@
           <img src="logo.png" alt="">
 
         </div>
+        <div class="menu">
+
+          <span>Home</span>
+          <span>Serie TV</span>
+          <span>Film</span>
+          <span>Original</span>
+          <span>Aggiunti di recente</span>
+          <span>La mia lista</span>
+
+        </div>
         <div class="searchbar">
 
+          <i class="fas fa-search gold"></i>
+
           <input v-model="search" @keyup.enter="searchFunction" placeholder="Inserisci film o serie tv" type="text" name="" value="">
-          <button type="button"  @click="searchFunction" name="button">Search</button>
+          <button type="button"  @click="searchFunction" name="button">Cerca</button>
 
         </div>
 

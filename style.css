@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 
@@ -31,6 +32,19 @@
   margin-left: 10px;
 }
 
+.menu{
+
+  color: white;
+  float: left;
+  font-weight: bold;
+  position: relative;
+  left: -400px;;
+}
+.menu span{
+
+  padding: 10px;
+}
+
 .header button{
 
   margin-right: 20px;
@@ -39,6 +53,13 @@
   padding: 5px;
   background-color: red;
   color: gold;
+  font-weight: bold;
+}
+
+.searchbar i{
+
+margin-right: 10px;
+
 }
 
 .colltitle{
@@ -52,21 +73,16 @@
 
   min-height: 400px;
   width: 100%;
-  border: 1px solid gold;
+  /* border: 1px solid gold; */
   display: flex;
   overflow: auto;
 
 }
 
-.collection{
-
-  scrollbar-width: 10px;
-  scrollbar-color: blue;
-}
 
 .collection::-webkit-scrollbar{
   width: 10px;
-  height: 5px;
+  height: 10px;
 }
 
 .collection::-webkit-scrollbar-track {
